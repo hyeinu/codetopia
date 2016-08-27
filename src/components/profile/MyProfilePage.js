@@ -42,9 +42,8 @@ export default class ProfilePage extends Component {
         <button onClick={this.showModal} className="btn btn-primary form-control">Edit</button>
         </div>
         <div className="col-md-4">
-          <h1>Username: {username}</h1>
-          <h1>Email: {email}</h1>
-          <h3>Bio: {bio}</h3>
+          <h1>{username}</h1>
+          <h3>Bio:</h3> <h4>{bio}</h4>
         <MessageForm profileId={this.props.params.id} />
         </div>
         <div className="col-md-5">

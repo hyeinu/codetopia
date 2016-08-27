@@ -1,7 +1,12 @@
+body {
+  background-color: papayawhip;
+}
+
 .messageContainer {
   width: 100%;
   height: 500px;
   overflow: scroll;
+  background-color: paleturquoise;
 }
 
 hr {
@@ -17,8 +22,38 @@ hr {
 .pInput {
   width: 100%;
   padding: 10px 5px 150px 10px;
+  background-image: url('http://data1.whicdn.com/images/6096950/large.jpg');
+  font-weight: bold;
+  color: black;
+
 }
 
 .profHeight{
   height: 200px;
+}
+
+.navbar {
+  background-color: #48D1CC;
+
+}
+.name {
+  font-family: 'Kaushan Script', cursive;
+}
+
+.inph4 {
+  font-size: 25px;
+  font-family: 'Shrikhand', cursive;
+}
+
+.splash {
+  font-family: 'Kaushan Script', cursive;
+/*
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Yellowtail', cursive;
+  font-family: 'Lobster Two', cursive;
+  font-family: 'Courgette', cursive;
+  */
+  font-size: 170px;
+  background-color: aqua;
+
 }

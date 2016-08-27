@@ -43,7 +43,7 @@ export default class Navbar extends Component {
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
         </button>
-        <Link className="navbar-brand" to='/'>React App</Link>
+        <Link className="navbar-brand name" to='/'>Metwork</Link>
         </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-left">
