@@ -10,7 +10,13 @@ const ServerActions = {
   },
   removeProfile(){
     AppDispatcher.dispatch({
-      type: Constants.REMOVE_PROFILE,
+      type: Constants.REMOVE_PROFILE
+    })
+  },
+  receiveAllProfiles(profiles){
+    AppDispatcher.dispatch({
+      type: Constants.RECEIVE_PROFILES,
+      profiles
     })
   }
 }

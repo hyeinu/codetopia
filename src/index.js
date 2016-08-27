@@ -7,6 +7,7 @@ import Splash from './components/Splash'
 import RegisterPage from './components/register/RegisterPage'
 import LoginPage from './components/login/LoginPage'
 import ProfilePage from './components/profile/ProfilePage'
+import ListProfiles from './components/profile/ListProfiles'
 import UserStore from './stores/UserStore'
 
 render(
@@ -15,6 +16,7 @@ render(
       <IndexRoute component={Splash}></IndexRoute>
       <Route path='register' component={RegisterPage}></Route>
       <Route path='login' component={LoginPage}></Route>
+      <Route path='profiles' component={ListProfiles}></Route>
       <Route path='profile/:id' component={ProfilePage}></Route>
     </Route>
   </Router>,

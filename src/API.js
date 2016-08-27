@@ -30,12 +30,25 @@ const API = {
       .then(ServerActions.removeProfile)
       .catch(console.error)
   },
+  getAllProfiles(){
+    axios.get(`/api/profiles`)
+    .then(res => res.data)
+    .then(data =>{
+      ServerActions.receiveAllProfiles(data)
+    })
+    .catch(console.error)
+  },
   editProf(newProf){
     axios.put('/api/users/profile', newProf)
       .then(res => res.data)
       .then(ServerActions.receiveProfile)
       .catch(console.error)
   }
+  // postMessage(id, newMessage){
+  //   axios.post(`/api/messages/${id}` , newMessage)
+  //     .then(ServerActions.receiveUserProfile)
+  //     .catch(console.error)
+  // }
 }
 
 export default API

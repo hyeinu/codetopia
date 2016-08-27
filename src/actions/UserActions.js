@@ -5,7 +5,11 @@ const UserActions = {
   register: API.register,
   editProf: API.editProf,
   getProfile: API.getProfile,
-  logout: API.logout
+  getAllProfiles: API.getAllProfiles,
+  logout: API.logout,
+  postMessage(id, newMessage){
+    API.postMessage(id, newMessage)
+  }
 }
 
 export default UserActions;

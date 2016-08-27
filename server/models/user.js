@@ -25,9 +25,7 @@ userSchema.statics.register = function(userObj , cb){
       if (err) return cb(err);
       bcrypt.hash(userObj.password, salt, null, (err, hash)=>{
         if (err) return cb(err);
-
         userObj.password  = hash;
-
         this.create(userObj, (err, newUser)=> {
           cb(err)
         });
