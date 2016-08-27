@@ -26,7 +26,6 @@ const API = {
       .catch(console.error)
   },
   getThisProfile(id){
-    console.log('id:', id)
     axios.get(`/api/profiles/${id}`)
     .then(res => res.data)
     .then(ServerActions.receiveThisProfile)

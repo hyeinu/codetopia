@@ -9,7 +9,6 @@ const UserActions = {
   getAllProfiles: API.getAllProfiles,
   logout: API.logout,
   postMessage(id, newMessage){
-    console.log('newMessage:', newMessage)
     API.postMessage(id, newMessage)
   }
 }

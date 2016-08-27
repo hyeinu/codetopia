@@ -24,11 +24,14 @@ export default class MessageForm extends Component {
     newMessage.user_from = this.state.profile._id
     let id = this.props.profileId
     UserActions.postMessage(id, newMessage)
+    this.setState({
+      message: ''
+    })
   }
   render(){
     return(
       <div>
-        <input className="pInput form-control"type="text" value={this.state.message} onChange={this._inputChange} />
+        <input className="pInput form-control" type="text" value={this.state.message} onChange={this._inputChange} />
         <button className="btn btn-success form-control" onClick={this._submit}>Submit</button>
       </div>
     )
