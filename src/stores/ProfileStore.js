@@ -4,6 +4,7 @@ import UserActions from '../actions/UserActions'
 import Constants from '../Constants'
 
 let _profiles = null;
+let _profile = {}
 
 class ProfileStore extends EventEmitter {
   constructor(){
@@ -11,8 +12,12 @@ class ProfileStore extends EventEmitter {
     AppDispatcher.register(action =>{
       switch(action.type){
         case Constants.RECEIVE_PROFILES:
-        _profiles = action.profiles
-        this.emit('Change')
+          _profiles = action.profiles
+          this.emit('Change')
+        break;
+        case Constants.RECEIVE_THIS_PROFILE:
+          _profile = action.profile
+          this.emit('Change')
         break;
       }
     });
@@ -26,6 +31,9 @@ class ProfileStore extends EventEmitter {
   }
   getAll(){
     return _profiles
+  }
+  getProfile(){
+    return _profile
   }
 }
 

@@ -86,6 +86,18 @@ userSchema.statics.getProfiles = function(cb){
   })
 }
 
+userSchema.statics.getThisProfile = function(id, cb){
+  mongoose.model('User')
+    .findById({_id: id})
+    .select({password: false})
+    .populate('friends')
+    .populate({ path: 'messages', populate: { path: 'user_from'}})
+    .exec((err, users) => {
+      if(err) return cb(err);
+      cb(null, users)
+  })
+}
+
 
 const User = mongoose.model('User', userSchema)
 

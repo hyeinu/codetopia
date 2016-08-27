@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import ProfileStore from '../../stores/ProfileStore'
+import UserStore from '../../stores/UserStore'
 import UserActions from '../../actions/UserActions'
 import '../../css/style.css'
 
@@ -21,11 +23,29 @@ export default class ListProfiles extends Component {
   _onChange(){
     this.setState({profiles: ProfileStore.getAll()})
   }
-
   render(){
+    let profiles
+    let userProfile = 
+    if(!this.state.profiles){
+      profiles = ( <h2> Loading...</h2>)
+    } else{
+      profiles = this.state.profiles.map(profile => {
+        if
+        return (
+          <div className="col-xs-3" key={profile._id}>
+          <Link to={`/profile/${profile._id}`}>
+          <img src={profile.pic_url} className="profHeight img-responsive img-rounded"/>
+          <h3>{profile.username}</h3>
+          <hr />
+          </Link>
+          </div>
+        )
+      })
+    }
     return(
       <div>
       <h1>Profile List</h1>
+      {profiles}
       </div>
     )
   }

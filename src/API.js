@@ -25,6 +25,13 @@ const API = {
       .then(ServerActions.receiveProfile)
       .catch(console.error)
   },
+  getThisProfile(id){
+    console.log('id:', id)
+    axios.get(`/api/profiles/${id}`)
+    .then(res => res.data)
+    .then(ServerActions.receiveThisProfile)
+    .catch(console.error)
+  },
   logout(){
     axios.get('/api/users/logout')
       .then(ServerActions.removeProfile)
@@ -43,12 +50,14 @@ const API = {
       .then(res => res.data)
       .then(ServerActions.receiveProfile)
       .catch(console.error)
+  },
+  postMessage(id, newMessage){
+    axios.post(`/api/messages/${id}`, newMessage)
+      .then(() =>{
+        this.getThisProfile(id)
+      })
+      .catch(console.error)
   }
-  // postMessage(id, newMessage){
-  //   axios.post(`/api/messages/${id}` , newMessage)
-  //     .then(ServerActions.receiveUserProfile)
-  //     .catch(console.error)
-  // }
 }
 
 export default API

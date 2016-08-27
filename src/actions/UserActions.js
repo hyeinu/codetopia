@@ -5,9 +5,11 @@ const UserActions = {
   register: API.register,
   editProf: API.editProf,
   getProfile: API.getProfile,
+  getThisProfile: API.getThisProfile,
   getAllProfiles: API.getAllProfiles,
   logout: API.logout,
   postMessage(id, newMessage){
+    console.log('newMessage:', newMessage)
     API.postMessage(id, newMessage)
   }
 }

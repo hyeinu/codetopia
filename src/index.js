@@ -7,6 +7,7 @@ import Splash from './components/Splash'
 import RegisterPage from './components/register/RegisterPage'
 import LoginPage from './components/login/LoginPage'
 import ProfilePage from './components/profile/ProfilePage'
+import MyProfilePage from './components/profile/MyProfilePage'
 import ListProfiles from './components/profile/ListProfiles'
 import UserStore from './stores/UserStore'
 
@@ -18,6 +19,7 @@ render(
       <Route path='login' component={LoginPage}></Route>
       <Route path='profiles' component={ListProfiles}></Route>
       <Route path='profile/:id' component={ProfilePage}></Route>
+      <Route path='myprofile/:id' component={MyProfilePage}></Route>
     </Route>
   </Router>,
   document.getElementById('root')

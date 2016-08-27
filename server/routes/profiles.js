@@ -15,5 +15,13 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/:id', (req, res) => {
+  User.getThisProfile(req.params.id, (err, user) => {
+      user.messages.forEach(message =>{
+        message.user_from.password = null;
+      })
+    res.send(user);
+  })
+})
 
 module.exports = router;

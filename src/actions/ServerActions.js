@@ -18,6 +18,12 @@ const ServerActions = {
       type: Constants.RECEIVE_PROFILES,
       profiles
     })
+  },
+  receiveThisProfile(profile){
+    AppDispatcher.dispatch({
+      type: Constants.RECEIVE_THIS_PROFILE,
+      profile
+    })
   }
 }
 

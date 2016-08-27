@@ -14,7 +14,7 @@ export default class UserWelcome extends Component{
       return (
         <ul className="nav navbar-nav navbar-nav navbar-right">
           <li>
-            <Link to={`/profile/${profile._id}`}>
+            <Link to={`/myprofile/${profile._id}`}>
               <i className="glyphicon glyphicon-user"></i>
               Welcome {profile.username}!
             </Link>

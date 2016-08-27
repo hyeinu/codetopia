@@ -21,7 +21,7 @@ router.route('/:id')
         user.messages.push(message._id)
         user.save(err =>{
           if(err) return res.status(400).send(err)
-          res.send(user);
+          res.send();
       })
     })
   })
