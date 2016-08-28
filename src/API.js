@@ -46,8 +46,9 @@ const API = {
   },
   editProf(newProf){
     axios.put('/api/users/profile', newProf)
-      .then(res => res.data)
-      .then(ServerActions.receiveProfile)
+      .then(() =>{
+        this.getProfile()
+      })
       .catch(console.error)
   },
   postMessage(id, newMessage){
