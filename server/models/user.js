@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   email: { type: String },
   bio: { type: String },
-  friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  facts: [{type: String}],
   messages: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
   pic_url: { type: String, default: 'http://static1.squarespace.com/static/5502fdbee4b03657f7464e5c/550a4b1de4b069a29065f3a1/551b7a90e4b0d5e6433a2bef/1429569820924/unknown.gif?format=300w' }
 })
