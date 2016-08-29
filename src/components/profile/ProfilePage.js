@@ -7,7 +7,6 @@ import MessageForm from './MessageForm'
 export default class ProfilePage extends Component {
   constructor(){
     super();
-
     this.state = {
       profile: ProfileStore.getProfile()
     }
@@ -23,7 +22,6 @@ export default class ProfilePage extends Component {
   }
   _onChange(){
     this.setState({profile: ProfileStore.getProfile()})
-    console.log('this.state:', this.state)
   }
   render(){
     if(this.state.profile){
@@ -49,7 +47,5 @@ export default class ProfilePage extends Component {
         <h1>Loading...</h1>
       )
     }
-
-
   }
 }

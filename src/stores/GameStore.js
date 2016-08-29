@@ -15,7 +15,6 @@ class GameStore extends EventEmitter{
     this.ref = firebase.database().ref('games');
     this.scores = firebase.database().ref('scores')
     this.gamestate = firebase.database().ref('gamestate')
-    let user_score
 
     this.ref.on('value', snap =>{
       _game_questions = snap.val();
@@ -39,11 +38,7 @@ class GameStore extends EventEmitter{
           _username = action.game_questions.username
           break;
         case 'START_GAME':
-          this.scores.remove()
           this.gamestate.push('')
-          break;
-        case 'REMOVE_FACT':
-          this.ref.child(action.id).remove()
           break;
         case 'ADD_PLAYER':
           let userObj = {username: _username, score: 0}
@@ -82,6 +77,9 @@ class GameStore extends EventEmitter{
   }
   getstate(){
     return _game_state;
+  }
+  num(){
+    return _num;
   }
 }
 

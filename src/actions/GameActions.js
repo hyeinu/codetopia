@@ -1,27 +1,14 @@
 import AppDispatcher from '../AppDispatcher'
 import axios from 'axios'
 
-const ChatActions = {
-  createMessage(message){
+const GameActions = {
+  addPlayer(){
     AppDispatcher.dispatch({
-      type: 'GET_FACTS',
-      message
-    })
-  },
-  removeMessage(id){
-    AppDispatcher.dispatch({
-      type: 'REMOVE_FACT',
-      id
-    })
-  },
-  addPlayer(id){
-    AppDispatcher.dispatch({
-      type: 'ADD_PLAYER',
-      id
+      type: 'ADD_PLAYER'
     })
   },
   getFacts(id){
-    axios.get(`/api/users/${id}/getFacts/`)
+    axios.get(`/api/games/${id}/getFacts/`)
       .then(res =>{
         return res.data
       })
@@ -30,7 +17,27 @@ const ChatActions = {
           type: 'GET_FACTS',
           game_questions: data
         })
-        this.addPlayer(id)
+        this.addPlayer()
+      })
+      .catch(console.error)
+  },
+  getAllFacts(id){
+    axios.get(`/api/games/${id}/getAll/`)
+      .then(res =>{
+        return res.data
+      })
+      .then(data => {
+        AppDispatcher.dispatch({
+          type: 'GET_ALL_FACTS',
+          data
+        })
+      })
+      .catch(console.error)
+  },
+  addFact(id, newMsg){
+    axios.put(`/api/games/${id}/addFact/`, newMsg)
+      .then(()=>{
+        this.getAllFacts(id)
       })
       .catch(console.error)
   },
@@ -58,4 +65,4 @@ const ChatActions = {
   }
 }
 
-export default ChatActions
+export default GameActions

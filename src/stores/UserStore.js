@@ -5,6 +5,7 @@ import RouteActions from '../actions/RouteActions'
 import Constants from '../Constants'
 
 let _profile = null;
+let _facts = [];
 
 class UserStore extends EventEmitter {
   constructor(){
@@ -20,6 +21,10 @@ class UserStore extends EventEmitter {
         RouteActions.route('/')
         this.emit('Change')
         break;
+        case 'GET_ALL_FACTS':
+        _facts = action.data
+        this.emit('Change')
+        break;
       }
     });
 
@@ -32,6 +37,9 @@ class UserStore extends EventEmitter {
   }
   get(){
     return _profile
+  }
+  getFacts(){
+    return _facts
   }
 }
 

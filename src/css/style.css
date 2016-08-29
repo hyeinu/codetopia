@@ -47,13 +47,7 @@ hr {
 
 .splash {
   font-family: 'Kaushan Script', cursive;
-/*
-  font-family: 'Dancing Script', cursive;
-  font-family: 'Yellowtail', cursive;
-  font-family: 'Lobster Two', cursive;
-  font-family: 'Courgette', cursive;
-  */
   font-size: 170px;
-  background-color: aqua;
+  text-shadow: 2px 2px pink;
 
 }

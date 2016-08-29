@@ -33,6 +33,7 @@ export default class MessageForm extends Component {
       <div>
         <h4 className="inph4">Leave a Message:</h4>
         <input className="pInput form-control" type="text" value={this.state.message} onChange={this._inputChange} />
+        <br />
         <button className="btn btn-success form-control" onClick={this._submit}>Submit</button>
       </div>
     )

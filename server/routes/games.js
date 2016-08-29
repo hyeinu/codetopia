@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+
 const User = require('../models/user')
 
 router.route('/')
@@ -39,6 +40,18 @@ router.route('/:id/getFacts')
        gamePiece.user_pic = user.pic_url
        gamePiece.username = user.username
        return res.send(gamePiece)
+      }
+    })
+  })
+
+router.route('/:id/getAll')
+  .get((req, res)=>{
+    User.findById(req.params.id , (err, user)=>{
+      if(err){
+        return res.status(400).send(err);
+      } else {
+       let userfacts = user.facts
+       return res.send(userfacts)
       }
     })
   })

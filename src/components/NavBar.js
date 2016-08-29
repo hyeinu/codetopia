@@ -49,6 +49,7 @@ export default class Navbar extends Component {
             <ul className="nav navbar-nav navbar-left">
             <li><Link to='/'>Home</Link></li>
             <li><Link to="/profiles">Profiles</Link></li>
+            <li><Link to="/game">Play</Link></li>
             </ul>
             <UserWelcome _logout={this._logout} profile={this.state.profile}/>
           </div>
