@@ -34,6 +34,16 @@ router.put('/profile', User.authMiddleware, (req, res) =>{
   })
 })
 
+router.put('/delete', User.authMiddleware, (req, res) =>{
+  User.findByIdAndRemove(req.user._id, (err, user)=>{
+    if(err){
+      return res.status(400).send(err);
+    } else {
+      return res.send()
+    }
+  })
+})
+
 router.get('/logout', (req, res) =>{
   res.clearCookie('authtoken').send();
 })

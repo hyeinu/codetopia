@@ -22,12 +22,12 @@ class GameStore extends EventEmitter{
     })
 
     this.scores.on('value', snap =>{
-      _user_scores = snap.val()
+      _user_scores = snap.val();
       this.emit('CHANGE')
     })
 
     this.gamestate.on('value', snap =>{
-      _game_state = snap.val()
+      _game_state = snap.val();
       this.emit('CHANGE')
     })
 
@@ -35,30 +35,31 @@ class GameStore extends EventEmitter{
       switch(action.type){
         case 'GET_FACTS':
           this.ref.push(action.game_questions)
-          _username = action.game_questions.username
+          _username = action.game_questions.username;
           break;
         case 'START_GAME':
-          this.gamestate.push('')
+          this.gamestate.push('');
           break;
         case 'ADD_PLAYER':
+          _score = 0;
           let userObj = {username: _username, score: 0}
-          let player = this.scores.push(userObj)
-          _user_key = player.key
+          let player = this.scores.push(userObj);
+          _user_key = player.key;
           break;
         case 'ADD_SCORE':
           _score += 1;
-          let updateObj = {}
+          let updateObj = {};
           updateObj[_user_key] = {username: _username, scores: _score}
-          this.scores.update(updateObj)
+          this.scores.update(updateObj);
           break;
         case 'REMOVE_PIECE':
-          this.ref.child(action.id).remove()
-          this.emit('CHANGE')
+          this.ref.child(action.id).remove();
+          this.emit('CHANGE');
           break;
         case 'CLEAR_SCORE':
-          this.scores.remove()
-          this.gamestate.remove()
-          this.emit('CHANGE')
+          this.scores.remove();
+          this.gamestate.remove();
+          this.emit('CHANGE');
           break;
       }
     })
